@@ -211,6 +211,10 @@ repository is required to check any formal claim.
 See `CITATION.cff` for the umbrella citation; each paper's
 bibliography also gives detailed references for its own dependencies.
 
+## Changelog
+
+Publication history is in [`CHANGELOG.md`](CHANGELOG.md).
+
 ## License
 
 MIT — see `LICENSE`.
