@@ -3,6 +3,11 @@
 *A selective λ=12 eigenspace embedding from five 24-cell cosets into
 the 600-cell.*
 
+**Lee Smart**
+*Institute of Vibrational Field Dynamics*
+[contact@vibrationalfielddynamics.org](mailto:contact@vibrationalfielddynamics.org) · [@vfd_org](https://x.com/vfd_org)
+May 2026
+
 > **Status:** Reproducible mathematical note / exact computational
 > certificate. Not peer-reviewed.
 >
