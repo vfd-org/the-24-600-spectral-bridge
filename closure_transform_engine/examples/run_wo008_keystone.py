@@ -26,17 +26,20 @@ from closure_transform_engine.keystone import run_keystone, format_decomposition
 
 
 def _resolve_out_dir() -> Path:
-    """Locate the docs outputs directory in either repo layout.
+    """Locate the docs outputs directory in any supported layout.
 
-    Main VFD research repo: docs/keystone_24_600/outputs/.
-    Standalone reproduction bundle: docs/outputs/.
+    Layouts (in priority order):
+      - main VFD research repo: ``docs/keystone_24_600/outputs/``;
+      - combined two-paper bundle: ``docs/02-spectral-bridge/outputs/``;
+      - legacy single-paper bundle: ``docs/outputs/``.
     """
     candidates = [
         _REPO / "docs" / "keystone_24_600" / "outputs",
+        _REPO / "docs" / "02-spectral-bridge" / "outputs",
         _REPO / "docs" / "outputs",
     ]
     for c in candidates:
-        if c.parent.exists():  # the docs dir exists
+        if c.parent.exists():  # the docs subdir exists
             return c
     return candidates[0]
 

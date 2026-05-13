@@ -1,180 +1,190 @@
 # The 24--600 Spectral Bridge
 
-**A reproducible exact-arithmetic spectral-graph result: the selective
-λ=12 eigenspace bridge between five 24-cell cosets and the 600-cell.**
+**A two-paper reproducible exact-arithmetic programme on the finite
+geometry and spectral structure of the 600-cell.**
 
-> **Status:** Reproducible mathematical note / exact computational
-> certificate. Not peer-reviewed.
+> **Status:** Reproducible mathematical notes / exact computational
+> certificates. Not peer-reviewed.
+
+The repository hosts two papers that should be read in order. The
+first establishes the finite-geometric decomposition of the 600-cell
+into five 24-cells; the second proves a spectral consequence of that
+decomposition.
 
 ---
 
-## The result in one paragraph
+## Read in order
 
-The 600-cell (the regular 4-polytope with 120 vertices) has a natural
-five-fold structure: its vertex set is the binary icosahedral group
-2I, the binary tetrahedral group 2T sits inside it with index 5, and
-the right cosets of 2T partition the 600-cell into **five disjoint
-24-cells**. On each 24-cell coset, the nearest-neighbour ("d=1")
-graph is the 24-cell edge graph (8-regular, 96 edges); on the full
-vertex set, the d=1 graph is the 600-cell edge graph (12-regular,
-720 edges). The two graphs share **no edges** — the local 24-cell
-edge length is the next distance shell up. We prove that the
-2-dimensional λ=12 eigenspace of each local 24-cell Laplacian
-zero-extends into the 25-dimensional λ=12 eigenspace of the full
-600-cell Laplacian, exactly over ℚ, and that **no other local
-Laplacian eigenvalue admits a non-trivial lift**. Under the induced
-A₅ = 2I/{±1} action on the five cosets, the 25-dim global λ=12
-eigenspace decomposes as `2·Y₅ ⊕ 3·Y₅` where Y₅ is the 5-dim
-irreducible representation of A₅, with exact integer characters.
+### Paper 1 — The foundation
 
-## Why the comparison is non-trivial
+**The Schläfli Decomposition of the 600-cell: Five 24-cell Cosets
+and the Induced A₅ Action**
 
-A function supported on a single coset is generically *not* a
-`L₆₀₀`-eigenvector: applying `L₆₀₀` couples the coset to vertices
-outside it (via 600-cell edges that cross between cosets). The lift
-identity says that for the local λ=12 eigenspace this off-coset
-coupling cancels *identically* — a finite-rank linear condition that
-turns out to be satisfied. The selectivity table says no other local
-eigenspace satisfies it. That is what makes λ=12 a genuine
-local-to-global spectral channel, not a trivial
-restriction-and-extension.
+📄 [`docs/01-schlafli-decomposition/schlafli_decomposition.pdf`](docs/01-schlafli-decomposition/schlafli_decomposition.pdf) ·
+[markdown](docs/01-schlafli-decomposition/schlafli_decomposition.md) ·
+[LaTeX source](docs/01-schlafli-decomposition/schlafli_decomposition.tex)
 
-## The formal claims (all certified exactly over ℚ)
+The 600-cell vertex set is the binary icosahedral group 2I (120 unit
+icosian quaternions). The binary tetrahedral group 2T is the σ-fixed
+subgroup of 2I, of index 5; its five right cosets partition V₆₀₀
+into five disjoint 24-element subsets, each carrying the intrinsic
+24-cell distance structure. The induced action of 2I on these five
+cosets factors through {±1} to a faithful transitive A₅. **Every
+claim is certified by exact ℚ(√5) arithmetic; no floating-point
+computation enters any formal claim.**
 
-The proof package is a set of exact rational-arithmetic certificates,
-not floating-point evidence. Every one of the following is checked in
-ℚ (or ℚ(√5) where character values are irrational) by
-`closure_transform_engine/keystone.py` and re-asserted by the test
-suite:
+### Paper 2 — The spectral consequence
 
-| Claim | Certificate |
-|---|---|
-| **Theorem 1** — λ=12 lift identity: `liftᵢ(E_{Cᵢ}(12)) ⊂ E₆₀₀(12)` for every coset | `exact_certify_lambda12_lift` — integer Laplacians, ℚ-rational nullspace bases, exact zero off-coset residuals in all 10 lifted basis vectors |
-| **Selectivity table** — `dim E₆₀₀(λ)` for λ ∈ {0, 4, 8, 9, 10, 12, 14, 15} | `exact_integer_spectrum_check` — ℚ-rational sympy nullspace at each integer λ |
-| **Lemma 3** — `−1 ∈ 2I` acts trivially on `E₆₀₀(12)` | `exact_a5_characters.minus_one_acts_trivially` — componentwise check of `P₋₁ v − v = 0` over ℚ for all 25 rational basis vectors |
-| **Lemma 3.5** — `E_lifted` and `E_residual` are 2I-invariant | `exact_a5_characters.{lifted,residual}_2I_invariant` — for every h ∈ 2I and B ∈ {B_lifted, B_residual}, exact rational check of `P_h B − B(BᵀB)⁻¹Bᵀ(P_h B) = 0` |
-| **Theorem 4** — exact integer A₅ class characters | exact rational trace, A₅ conjugacy classes enumerated by orbit (verified sizes 1, 15, 20, 12, 12) |
-| **Corollary 5** — irrep decomposition `E_lifted ≅ 2·Y₅`, `E_residual ≅ 3·Y₅`, `E₆₀₀(12) ≅ 5·Y₅` | exact ℚ(√5) inner products against the A₅ character table |
+**The 24--600 Spectral Bridge: A selective λ=12 eigenspace embedding
+from five 24-cell cosets into the 600-cell**
 
-Floating-point computation (NumPy) enters only as an *independent
-cross-check* in `lambda12_lift` / `run_keystone`, where it agrees
-with the exact certificates to ‖`L₆₀₀ v − 12 v`‖ ≤ 6.2 × 10⁻¹⁵.
+📄 [`docs/02-spectral-bridge/spectral_bridge_note.pdf`](docs/02-spectral-bridge/spectral_bridge_note.pdf) ·
+[markdown](docs/02-spectral-bridge/spectral_bridge_note.md) ·
+[LaTeX source](docs/02-spectral-bridge/spectral_bridge_note.tex)
 
-## Selectivity (full table)
+Building on Paper 1, the 2-dimensional λ=12 eigenspace of each local
+24-cell Laplacian zero-extends *exactly* into the 25-dimensional
+λ=12 eigenspace of the full 600-cell Laplacian. The lift is
+*selective*: no other local Laplacian eigenvalue admits a
+non-trivial lift. Under the induced A₅ action on the five cosets,
+the global λ=12 eigenspace decomposes as `5·Y₅ = 2·Y₅ ⊕ 3·Y₅`, with
+exact integer characters. **Every claim is certified by exact
+ℚ-rational (or ℚ(√5)-rational) arithmetic.**
 
-| local λ | lift-image dim | dim E₆₀₀(λ) | intersection dim | verdict |
-|---------|---------------:|------------:|-----------------:|---------|
-| 0 | 5 | 1 | 1 | PARTIAL — only the global constant (symmetric combination of coset indicators) |
-| 4 | 20 | 0 | 0 | E₆₀₀(λ) = {0} (vacuous; λ=4 is not an eigenvalue of `L₆₀₀`) |
-| 8 | 45 | 0 | 0 | E₆₀₀(λ) = {0} |
-| 10 | 40 | 0 | 0 | E₆₀₀(λ) = {0} |
-| **12** | **10** | **25** | **10** | **FULL** |
+---
 
-Among the five local 24-cell Laplacian eigenvalues, **λ=12 is the only
-one that gives a full zero-extension** into a corresponding global
-600-cell eigenspace. The λ=0 case contributes exactly one direction
-(the global constant, reconstructed from the symmetric sum of coset
-indicators). The local eigenvalues λ ∈ {4, 8, 10} are not eigenvalues
-of `L₆₀₀` at all (certified by exact ℚ-rational nullspace of
-`L₆₀₀ − λI`), so the question is vacuous there.
-
-## What this does and does not claim
-
-It claims:
-- a reproducible, selective λ=12 spectral channel between the five
-  24-cell cosets of the 600-cell and the global 25-dim λ=12 sector;
-- an exact direct-sum split of dimensions 10 + 15 = 25;
-- an A₅-equivariant decomposition `2·Y₅ + 3·Y₅ = 5·Y₅` with exact
-  integer characters.
-
-It does **not** claim to derive the Standard Model, particle masses,
-cosmology, black holes, the Riemann hypothesis, or consciousness, and
-it does not subsume or replace any other framework. It is a narrow,
-inspectable, reproducible geometry result.
-
-## Reproduce it
-
-Requires Python ≥ 3.8 with NumPy, SciPy, SymPy (see
-`requirements.txt`; developed on Python 3.8.10, NumPy 1.24.4, SymPy
-1.13.3, SciPy 1.10.1). The formal certificates use only exact ℚ
-arithmetic via SymPy; NumPy is used only for the floating-point
-cross-check.
+## Reproduce
 
 ```bash
 pip install -r requirements.txt          # or: pip install -e .
 
-# Run the full protocol (a few minutes): builds the 600-cell from
-# exact Q(sqrt 5) icosian quaternions, runs every certificate, and
-# writes the frozen output artifacts to docs/outputs/.
+# Paper 1 — foundation (under a minute):
+python closure_transform_engine/examples/run_wo007_schlafli_decomposition.py
+
+# Paper 2 — spectral bridge (~1.5 minutes):
 python closure_transform_engine/examples/run_wo008_keystone.py
 
-# Re-assert the certificate-level claims as a test (~2 minutes):
-pytest closure_transform_engine/tests/test_wo008_keystone_artifact.py
+# Re-assert every certificate-level claim as a test (~2.5 minutes):
+pytest closure_transform_engine/tests/
 ```
 
-Expected console summary:
+Both runners write frozen output artifacts into the corresponding
+`docs/0?-*/outputs/` directory, including a reproducibility log that
+records UTC timestamp, environment, and commit hash of the source
+revision used.
 
-```text
-λ=12 lift residual: ~6.16e-15  (numerical cross-check)
-exact ℚ-rational certificate: YES (0 nonzero off-coset components)
--1 ∈ 2I acts trivially on E_V600(12): YES (exact)
-E_lifted, E_residual 2I-invariant: YES (exact, all 120 elements)
-selectivity:  λ=0 PARTIAL (intersection 1/5)
-              λ=4,8,10 EMPTY (intersection 0; dim E_V600 = 0 exactly)
-              λ=12 FULL (intersection 10/10)
-exact A_5 irrep multiplicities:  E_lifted 2·Y5,  E_residual 3·Y5,  E600(12) 5·Y5
-Verdict: SELECTIVE_SPECTRAL_BRIDGE
-```
+Requires Python ≥ 3.8 with NumPy, SymPy, SciPy (the `pyproject.toml`
+specifies minimum versions; developed on Python 3.8.10, NumPy 1.24.4,
+SymPy 1.13.3, SciPy 1.10.1).
 
-The reproducibility log (`docs/outputs/wo008_reproducibility_log.txt`)
-records the run UTC timestamp, elapsed time, Python version,
-repository path, and the **commit hash** of the source revision used
-(plus a marker if the working tree was dirty), so the frozen
-artifacts are anchored to a specific source state.
+---
+
+## What each runner verifies (one-line summaries)
+
+### Paper 1 — five certificates
+
+| § | Theorem | Certificate routine |
+|---|---|---|
+| 2 | V₆₀₀ is a group of order 120 (icosian model of 2I) | `certify_v600_construction` |
+| 3 | V₂₄ = σ-fixed subset is a subgroup of index 5 (Hurwitz-unit model of 2T) | `certify_v24_subgroup` |
+| 4 | Five right cosets of 2T partition V₆₀₀, each size 24 | `certify_right_cosets` |
+| 5 | Each coset is isometric to the 24-cell; no intra-coset V₆₀₀-edge | `certify_each_coset_is_24cell` |
+| 6 | Induced 2I-action on five cosets has kernel {±1} and image A₅ | `certify_a5_coset_action` |
+
+### Paper 2 — five certificates (plus the floating-point cross-check)
+
+| § | Claim | Certificate routine |
+|---|---|---|
+| 3 | λ=12 lift identity (Theorem 1) | `exact_certify_lambda12_lift` |
+| 2/4 | Integer-eigenvalue multiplicities of L_C and L_V600 (incl. λ=4,8,10 nullity = 0) | `exact_integer_spectrum_check` |
+| 5 | Lemma 3 ({±1}-triviality on E_V600(12)) | `exact_a5_characters.minus_one_acts_trivially` |
+| 5 | Lemma 3.5 (2I-invariance of E_lifted and E_residual) | `exact_a5_characters.{lifted,residual}_2I_invariant` |
+| 5 | Theorem 4 + Corollary 5 (exact integer A₅ characters and irrep decomposition) | `exact_a5_characters` |
+| 3 | Floating-point cross-check `‖L₆₀₀ v − 12 v‖ ≤ 6.2e-15` | `lambda12_lift` (NumPy) |
+
+The NumPy floating-point computation is used **only** for the
+independent cross-check; it does not enter any formal claim.
+
+---
 
 ## Repository layout
 
 ```
-closure_transform_engine/        the computation
-  keystone.py                    construction, lift, exact certificates, A_5 characters
-  examples/run_wo008_keystone.py one-command runner
-  tests/test_wo008_keystone_artifact.py   the test suite (28 tests; asserts the certificate-level claims)
-vfd_v600/                        vendored exact Q(sqrt 5) icosian-quaternion package
-                                 (V_600 = 2I, the sigma-Galois twist, the 24-cell V_24,
-                                 and the V_24 left action used for the five-coset partition)
+README.md                        this file (umbrella narrative)
+LICENSE                          MIT
+CITATION.cff                     citation metadata for both papers
+requirements.txt, pyproject.toml  dependency pins (Python ≥ 3.8)
+.gitignore
+
+closure_transform_engine/        the computation (both papers)
+  decomposition.py               Paper 1 certificates
+  keystone.py                    Paper 2 certificates
+  examples/
+    run_wo007_schlafli_decomposition.py   Paper 1 runner
+    run_wo008_keystone.py                  Paper 2 runner
+  tests/
+    test_wo007_schlafli_decomposition.py  Paper 1 tests (23)
+    test_wo008_keystone_artifact.py       Paper 2 tests (28)
+
+vfd_v600/                        vendored exact Q(sqrt 5) icosian-quaternion
+                                 package (the only mathematical dependency)
+
 docs/
-  spectral_bridge_note.{tex,pdf,md}   the technical note (canonical = .tex)
-  figures/                       SVG figures
-  outputs/                       frozen run artifacts (JSON / CSV / log)
-requirements.txt, pyproject.toml, LICENSE, CITATION.cff
+  01-schlafli-decomposition/     Paper 1 artifacts
+    schlafli_decomposition.{tex,pdf,md}
+    figures/    coset_partition, group_inclusion, distance_shells, coset_action
+    outputs/    wo007_summary.json, cosets.json, coset_action_table.csv,
+                distance_shells.csv, reproducibility_log.txt
+  02-spectral-bridge/            Paper 2 artifacts
+    spectral_bridge_note.{tex,pdf,md}
+    figures/    bridge_architecture, coset_decomposition,
+                eigenspace_decomposition, negative_controls
+    outputs/    wo008_summary.json, verdict_table.csv,
+                reproducibility_log.txt
 ```
 
-## Provenance and dependencies
+---
 
-The bundle is self-contained: **the claims of this note do not
-require any external repository.** A reader can verify every theorem
-by running the two commands above.
+## What this programme claims and does not claim
 
-For context, the underlying construction connects to a broader
-research programme:
+It claims:
 
-- `vfd_v600/` (vendored unchanged in this repo) provides exact ℚ(√5)
-  icosian quaternion arithmetic, the 120-vertex V₆₀₀ vertex set, the
-  σ-Galois twist, the σ-fixed 24-cell V₂₄, and the V₂₄ left action
-  used to obtain the five-coset partition.
-- The classical fact that 2T has index 5 in 2I, and that the cosets
-  form five inscribed 24-cells, is Coxeter / Conway–Sloane (cited in
-  the note's bibliography). A machine-verified treatment within the
-  upstream research programme uses the left-coset convention; this
-  repo uses right cosets, related by the involution g ↦ g⁻¹.
-- The 600-cell and 24-cell graph spectra are also computed
-  independently elsewhere in the research programme; the integer
-  multiplicities used in the note are additionally certified by the
-  exact ℚ-rational nullspace routines included here.
+- A reproducible exact-arithmetic certificate that V₆₀₀ partitions
+  into five isometric 24-cells (the Schläfli decomposition);
+- A reproducible exact-arithmetic certificate that under the induced
+  2I-action on these five cosets, the kernel is {±1} and the image
+  is A₅;
+- A reproducible exact-arithmetic certificate that the local 24-cell
+  λ=12 eigenspaces zero-extend exactly into the global 600-cell λ=12
+  eigenspace, and that no other local Laplacian eigenvalue admits
+  a non-trivial lift;
+- An exact A₅-equivariant irrep decomposition
+  `E_V600(12) = 2·Y₅ ⊕ 3·Y₅`.
+
+It does **not** claim to derive the Standard Model, particle masses,
+cosmology, black holes, the Riemann hypothesis, or consciousness,
+and it does not subsume or replace any other framework.
+
+---
+
+## Provenance
+
+The two papers stand on a single common foundation:
+
+- `vfd_v600/` (vendored, unchanged) — exact ℚ(√5) icosian quaternion
+  arithmetic, the 120-vertex V₆₀₀ vertex set, the σ-Galois twist,
+  and the σ-fixed 24-cell V₂₄.
+- The classical fact that 2T has index 5 in 2I and that the cosets
+  form five inscribed 24-cells is Coxeter / Conway–Sloane; the
+  precise references are in each paper's bibliography.
+
+Each paper is self-contained for verification: no external
+repository is required to check any formal claim.
 
 ## Citation
 
-See `CITATION.cff`.
+See `CITATION.cff` for the umbrella citation; each paper's
+bibliography also gives detailed references for its own dependencies.
 
 ## License
 

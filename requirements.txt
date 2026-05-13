@@ -1,8 +1,10 @@
-# Exact pins are the versions the frozen artifacts in docs/outputs/ were
-# produced with (Python 3.8.10). The >= bounds below are the minimum
-# versions known to work; the exact certificates use only SymPy rational
-# arithmetic, so they are insensitive to NumPy/SciPy patch versions.
+# Exact pins are the versions the frozen artifacts in
+# docs/0?-*/outputs/ were produced with (Python 3.8.10). The >= bounds
+# below are the minimum versions known to work. The formal certificates
+# in both papers use only SymPy rational arithmetic and integer set
+# operations, so the result is insensitive to NumPy / SciPy patch
+# versions.
 numpy>=1.20      # developed on 1.24.4
-scipy>=1.7       # developed on 1.10.1
+scipy>=1.7       # developed on 1.10.1 (used only in Paper 2's floating-point cross-check)
 sympy>=1.12      # developed on 1.13.3
 pytest>=7.0      # for the test suite

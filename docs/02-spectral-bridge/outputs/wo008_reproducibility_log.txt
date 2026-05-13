@@ -1,9 +1,9 @@
 # WO-008 keystone run log
-# run_utc:  2026-05-13T12:27:43Z
-# elapsed:  61.19 s
+# run_utc:  2026-05-13T15:12:59Z
+# elapsed:  57.50 s
 # python:   3.8.10 (default, Mar 18 2025, 20:04:55) 
 # repo:     /mnt/c/Users/nexus/OneDrive/Documents/My Projects/vfd-crystalisation-paper/release-bundles/the-24-600-spectral-bridge
-# commit:   9e08811295d7a547d618ca243bfb54d92830a5a7 (uncommitted changes present)
+# commit:   c76026b347d45be00a883558db69ccc594b5af3b (uncommitted changes present)
 
 === WO-008 Keystone: 24-600 lambda=12 Spectral Bridge ===
 
@@ -51,5 +51,5 @@ Representation (A_5 = 2I/{+/-1} acting on the 5 cosets):
 Verdict:
   SELECTIVE_SPECTRAL_BRIDGE
 
-Wrote: docs/outputs/wo008_summary.json
-Wrote: docs/outputs/wo008_verdict_table.csv
+Wrote: docs/02-spectral-bridge/outputs/wo008_summary.json
+Wrote: docs/02-spectral-bridge/outputs/wo008_verdict_table.csv

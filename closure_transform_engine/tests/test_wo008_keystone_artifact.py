@@ -20,15 +20,20 @@ import pytest
 
 REPO = Path(__file__).resolve().parents[2]
 
-# The docs/figures/outputs may live either at docs/keystone_24_600/ (inside
-# the main VFD research repo) or directly at docs/ (inside the standalone
-# reproduction bundle). Detect which layout this is.
-_DOCS_CANDIDATES = [REPO / "docs" / "keystone_24_600", REPO / "docs"]
+# The docs/figures/outputs for the spectral bridge can live in three places:
+#   - main VFD research repo: docs/keystone_24_600/
+#   - combined two-paper public bundle: docs/02-spectral-bridge/
+#   - legacy single-paper bundle: docs/
+_DOCS_CANDIDATES = [
+    REPO / "docs" / "keystone_24_600",
+    REPO / "docs" / "02-spectral-bridge",
+    REPO / "docs",
+]
 DOCS = next((d for d in _DOCS_CANDIDATES if (d / "spectral_bridge_note.md").exists()),
             _DOCS_CANDIDATES[0])
 OUTPUTS = DOCS / "outputs"
 
-# The README is at DOCS/README.md (main repo) or at the bundle root (bundle).
+# The README lives at DOCS/README.md (main repo) or at the bundle root.
 _README_CANDIDATES = [DOCS / "README.md", REPO / "README.md"]
 README_PATH = next((p for p in _README_CANDIDATES if p.exists()), _README_CANDIDATES[0])
 
