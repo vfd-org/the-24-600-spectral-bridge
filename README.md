@@ -1,15 +1,17 @@
 # The 24--600 Spectral Bridge
 
-**A two-paper reproducible exact-arithmetic programme on the finite
+**A three-note reproducible exact-arithmetic programme on the finite
 geometry and spectral structure of the 600-cell.**
 
 > **Status:** Reproducible mathematical notes / exact computational
-> certificates. Not peer-reviewed.
+> certificates (Papers 1–2) and a synthesis / programme map (Paper 3).
+> Not peer-reviewed.
 
-The repository hosts two papers that should be read in order. The
+The repository hosts three notes meant to be read in order. The
 first establishes the finite-geometric decomposition of the 600-cell
 into five 24-cells; the second proves a spectral consequence of that
-decomposition.
+decomposition; the third explains their combined role as a first
+local-to-global closure-projection channel.
 
 ---
 
@@ -50,6 +52,25 @@ non-trivial lift. Under the induced A₅ action on the five cosets,
 the global λ=12 eigenspace decomposes as `5·Y₅ = 2·Y₅ ⊕ 3·Y₅`, with
 exact integer characters. **Every claim is certified by exact
 ℚ-rational (or ℚ(√5)-rational) arithmetic.**
+
+### Paper 3 — The synthesis
+
+**From Schläfli Decomposition to Spectral Bridge: A First
+Closure-Projection Channel in V₆₀₀**
+
+📄 [`docs/03-closure-projection-channel/v600_first_closure_projection_channel.pdf`](docs/03-closure-projection-channel/v600_first_closure_projection_channel.pdf) ·
+[markdown](docs/03-closure-projection-channel/v600_first_closure_projection_channel.md) ·
+[LaTeX source](docs/03-closure-projection-channel/v600_first_closure_projection_channel.tex)
+
+A short (5-page) reader's map that synthesises Papers 1 and 2 into a
+single picture: a local 24-cell shell structure couples *exactly* to
+a global 600-cell invariant sector at λ=12, with A₅-stable
+decomposition `2·Y₅ ⊕ 3·Y₅ = 5·Y₅`. Defines "closure-projection
+channel" cautiously as a name for the local-to-global compatibility
+relation the two prior papers together exhibit — not as a new
+theorem. The note introduces no new mathematical claim and no
+physics claim; it carries no formal certificate of its own and
+depends entirely on the exact certificates in Papers 1 and 2.
 
 ---
 
@@ -112,11 +133,11 @@ independent cross-check; it does not enter any formal claim.
 ```
 README.md                        this file (umbrella narrative)
 LICENSE                          MIT
-CITATION.cff                     citation metadata for both papers
+CITATION.cff                     citation metadata for all three notes
 requirements.txt, pyproject.toml  dependency pins (Python ≥ 3.8)
 .gitignore
 
-closure_transform_engine/        the computation (both papers)
+closure_transform_engine/        the computation (Papers 1 + 2)
   decomposition.py               Paper 1 certificates
   keystone.py                    Paper 2 certificates
   examples/
@@ -141,6 +162,10 @@ docs/
                 eigenspace_decomposition, negative_controls
     outputs/    wo008_summary.json, verdict_table.csv,
                 reproducibility_log.txt
+  03-closure-projection-channel/  Paper 3 — synthesis / programme map
+    v600_first_closure_projection_channel.{tex,pdf,md}
+    figures/    the_ladder, local_vs_global_shell, sector_to_global, a5_rep_split
+    public_post_draft.md, webpage_copy.md
 ```
 
 ---

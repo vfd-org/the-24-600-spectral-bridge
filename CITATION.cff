@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-title: "The 24-600 Spectral Bridge: a two-paper reproducible exact-arithmetic programme on the finite geometry and spectral structure of the 600-cell"
-message: "If you use this work, please cite both papers as below."
+title: "The 24-600 Spectral Bridge: a three-note reproducible exact-arithmetic programme on the finite geometry and spectral structure of the 600-cell"
+message: "If you use this work, please cite the notes as below."
 type: software
 authors:
   - family-names: "Smart"
@@ -23,7 +23,7 @@ abstract: >-
   nullspace computations and Q(sqrt 5) icosian arithmetic; no
   floating-point computation enters any formal certificate.
 license: MIT
-version: "2.0.0"
+version: "2.1.0"
 date-released: "2026-05-13"
 url: "https://github.com/vfd-org/the-24-600-spectral-bridge"
 repository-code: "https://github.com/vfd-org/the-24-600-spectral-bridge"
@@ -56,3 +56,11 @@ references:
         affiliation: "Institute of Vibrational Field Dynamics"
     date-released: "2026-05-13"
     notes: "Paper 2 of the programme. Proves the spectral consequence of Paper 1. Source: docs/02-spectral-bridge/spectral_bridge_note.tex"
+  - type: report
+    title: "From Schläfli Decomposition to Spectral Bridge: A First Closure-Projection Channel in V_600"
+    authors:
+      - family-names: "Smart"
+        given-names: "Lee"
+        affiliation: "Institute of Vibrational Field Dynamics"
+    date-released: "2026-05-13"
+    notes: "Paper 3 of the programme. Synthesis / programme map; introduces no new mathematical claim, explains the combined role of Papers 1 and 2 as a first local-to-global closure-projection channel. Source: docs/03-closure-projection-channel/v600_first_closure_projection_channel.tex"
