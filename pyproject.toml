@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "the-24-600-spectral-bridge"
+version = "1.0.0"
+description = "A reproducible exact spectral-graph result: the selective lambda=12 eigenspace bridge between five 24-cell cosets and the 600-cell."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20",
+    "scipy>=1.7",
+    "sympy>=1.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools]
+packages = ["closure_transform_engine", "closure_transform_engine.examples", "closure_transform_engine.tests", "vfd_v600"]
+
+[tool.pytest.ini_options]
+testpaths = ["closure_transform_engine/tests"]

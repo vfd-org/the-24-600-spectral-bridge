@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: "The 24-600 Spectral Bridge: a reproducible exact spectral-graph result"
+message: "If you use this artifact, please cite it as below."
+type: software
+authors:
+  - family-names: "Smart"
+    given-names: "Lee"
+    affiliation: "Institute of Vibrational Field Dynamics"
+abstract: >-
+  A self-contained, reproducible exact-arithmetic note and code package
+  establishing the following claims, each certified over the rationals:
+  (i) the lambda=12 eigenspace of each of the five 24-cell coset
+  Laplacians inside the 600-cell zero-extends exactly into the
+  corresponding 25-dimensional global eigenspace; (ii) the lift is
+  selective for lambda=12 (the other local Laplacian eigenvalues
+  0, 4, 8, 10 give no non-trivial lift, with dim E_V600(lambda) = 0
+  certified exactly for lambda in {4, 8, 10}); (iii) {+/-1} acts
+  trivially on E_V600(12); (iv) the lifted and residual subspaces are
+  2I-invariant; and (v) the resulting A_5-equivariant decomposition
+  E_V600(12) = 2*Y_5 + 3*Y_5 with exact integer characters. Floating-
+  point computation is included only as an independent cross-check.
+license: MIT
+version: "1.0.0"
+date-released: "2026-05-13"
+url: "https://github.com/vfd-org/the-24-600-spectral-bridge"
+repository-code: "https://github.com/vfd-org/the-24-600-spectral-bridge"
+keywords:
+  - "600-cell"
+  - "24-cell"
+  - "spectral graph theory"
+  - "binary icosahedral group"
+  - "binary tetrahedral group"
+  - "A_5 representation theory"
+  - "exact arithmetic"
+  - "reproducible mathematics"
+  - "computational mathematics"
