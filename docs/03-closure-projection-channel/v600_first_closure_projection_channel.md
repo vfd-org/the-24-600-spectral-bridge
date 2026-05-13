@@ -1,6 +1,6 @@
 # From Schläfli Decomposition to Spectral Bridge
 
-*A First Closure-Projection Channel in V₆₀₀.*
+*A First Explicit Closure-Projection Channel in V₆₀₀.*
 
 **Lee Smart**
 *Institute of Vibrational Field Dynamics*
@@ -29,8 +29,9 @@ of the binary tetrahedral subgroup 2T, each carrying intrinsic
 local λ=12 eigenspaces of these five 24-cell sectors zero-extend
 exactly into the global λ=12 eigenspace of the 600-cell Laplacian.
 This note synthesises those two exact-arithmetic results and
-explains their combined role as a first local-to-global spectral
-channel in the V₆₀₀ programme. No new physical claim is made.
+explains their combined role as a first explicit local-to-global
+spectral channel in the V₆₀₀ programme. No new physical claim is
+made.
 
 ## 1. Why this synthesis note exists
 
@@ -210,6 +211,14 @@ All three live in the same repository:
 <https://github.com/vfd-org/the-24-600-spectral-bridge>.
 Run `pytest closure_transform_engine/tests/` from a clone to
 re-assert every certificate-level claim of Papers 1 and 2.
+
+Although named after the spectral-bridge artifact, this repository
+now serves as the public V₆₀₀ foundation bundle for all three
+notes:
+
+- Paper 1 (Schläfli decomposition): `docs/01-schlafli-decomposition/`
+- Paper 2 (spectral bridge): `docs/02-spectral-bridge/`
+- Paper 3 (this synthesis): `docs/03-closure-projection-channel/`
 
 ---
 

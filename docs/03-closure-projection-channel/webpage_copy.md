@@ -4,7 +4,7 @@
 
 **From Schläfli Decomposition to Spectral Bridge**
 
-*A first local-to-global closure-projection channel in V₆₀₀ —
+*A first explicit local-to-global closure-projection channel in V₆₀₀ —
 synthesised from two reproducible exact-arithmetic notes.*
 
 ## The two artifacts

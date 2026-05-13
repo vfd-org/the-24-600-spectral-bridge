@@ -26,7 +26,7 @@
 \setlength{\emergencystretch}{3em}
 
 \title{From Schl\"afli Decomposition to Spectral Bridge:\\
-\large A First Closure-Projection Channel in $\Vsix$}
+\large A First Explicit Closure-Projection Channel in $\Vsix$}
 \author{%
   Lee Smart\\[4pt]
   \textit{Institute of Vibrational Field Dynamics}\\[2pt]
@@ -65,7 +65,7 @@ then shows that the local $\lambda=12$ eigenspaces of these five
 24-cell sectors zero-extend exactly into the global $\lambda=12$
 eigenspace of the 600-cell Laplacian.  This note synthesises those
 two exact-arithmetic results and explains their combined role as a
-first local-to-global spectral channel in the $\Vsix$ programme.
+first explicit local-to-global spectral channel in the $\Vsix$ programme.
 No new physical claim is made.
 \end{abstract}
 
@@ -308,10 +308,20 @@ This synthesis note
 Both prior artifacts are public:
 \begin{itemize}
   \item \url{https://github.com/vfd-org/the-24-600-spectral-bridge}
-        (hosts both Paper 1 and Paper 2 alongside this synthesis;
-        run \texttt{pytest closure\_transform\_engine/tests/} to
-        re-assert every certificate-level claim of both prior
-        notes).
+        --- run \texttt{pytest closure\_transform\_engine/tests/}
+        from a clone to re-assert every certificate-level claim of
+        both prior notes.
+\end{itemize}
+
+\smallskip
+\noindent
+Although named after the spectral-bridge artifact, this repository
+now serves as the public $\Vsix$ foundation bundle for all three
+notes:
+\begin{itemize}
+  \item Paper 1 (Schl\"afli decomposition): \texttt{docs/}\allowbreak\texttt{01-schlafli-decomposition/}
+  \item Paper 2 (spectral bridge): \texttt{docs/}\allowbreak\texttt{02-spectral-bridge/}
+  \item Paper 3 (this synthesis): \texttt{docs/}\allowbreak\texttt{03-closure-projection-channel/}
 \end{itemize}
 
 \bigskip
